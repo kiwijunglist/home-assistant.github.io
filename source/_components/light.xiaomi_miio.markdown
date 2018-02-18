@@ -28,12 +28,14 @@ light:
     name: Xiaomi Philips Smart LED Ball
     host: 192.168.130.67
     token: YOUR_TOKEN
+    model: philips.light.bulb
 ```
 
 Configuration variables:
 - **host** (*Required*): The IP of your light.
 - **token** (*Required*): The API token of your light.
 - **name** (*Optional*): The name of your light.
+- **model**: philips.light.bulb (*Optional*): Required to add as unavailable device if light unavilable on home assistant start up.
 
 ## {% linkable_title Platform Services %}
 
