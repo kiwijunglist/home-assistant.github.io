@@ -29,7 +29,8 @@ To use Google Assistant, your Home Assistant configuration has to be externally 
 
 Since release 0.80, the `Authorization Code` type of `OAuth` account linking is supported. To migrate your configuration, you need:
 
-1. Change your `Account linking` setting in [Actions on Google console](https://console.actions.google.com/), look for the `Advanced Options` in the bottom left of the sidebar.
+1. Change your fulfillment url setting in [Actions on Google console](https://console.actions.google.com/), look for the `Build: Actions` in the sidebar bar on the left.  Change the fulfillment url to `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`(replace with your actual URL).
+2. Change your `Account linking` setting in [Actions on Google console](https://console.actions.google.com/), look for the `Advanced Options` in the bottom left of the sidebar.
     - Change `Linking type` to `OAuth` and `Authorization Code`.
     - In the `Client information` section:
         - Change `Client ID` to `https://oauth-redirect.googleusercontent.com/`, the trailing slash is important.
@@ -39,10 +40,10 @@ Since release 0.80, the `Authorization Code` type of `OAuth` account linking is 
     - In the `Configure your client` section:
         - Do **NOT** check `Google to transmit clientID and secret via HTTP basic auth header`.
     - Click 'Save' at the top right corner, then click 'Test' to generate a new draft version of the Test App.
-2. Change your `configuration.yaml` file:
+3. Change your `configuration.yaml` file:
     - Remove `client_id`, `access_token`, `agent_user_id` config from `google_assistant:` since they are no longer needed.
-3. Restart Home Assistant, open the `Google Assistant` app on your mobile phone then go to `Settings > Home Control`, re-link `[test] your app name`.
-4. A browser will be open and asking you to login to your Home Assistant instance, it will redirect back to `Google Assistant` app right afterward.
+4. Restart Home Assistant, open the `Google Assistant` app on your mobile phone then go to `Settings > Home Control`, re-link `[test] your app name`.
+5. A browser will be open and asking you to login to your Home Assistant instance, it will redirect back to `Google Assistant` app right afterward.
 
 <p class='note'>
 If you've added Home Assistant to the home screen, you have to first remove it from home screen, otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant to redirect back to the `Google Assistant` app.
